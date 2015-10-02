@@ -1,5 +1,6 @@
 ﻿
 using Jil;
+using System;
 using System.IO;
 
 namespace CsharpJSON
@@ -11,8 +12,23 @@ namespace CsharpJSON
             var employee = GetEmployee();
             string employeeSerializedString = SerializeEmployee(employee);
 
+            Console.WriteLine("Serialize Employee");
+            Console.WriteLine(employeeSerializedString);
 
+            Console.WriteLine("\n\nDeserializing Employee");
+            var employeeDeserialized = DeserializeEmployee(employeeSerializedString);
 
+            Console.WriteLine(employeeDeserialized.EmployeeId);
+            Console.WriteLine(employeeDeserialized.FirstName);
+            Console.WriteLine(employeeDeserialized.LastName);
+            Console.WriteLine(employeeDeserialized.Designation);
+
+            Console.ReadKey();
+        }
+
+        private static Employee DeserializeEmployee(string employeeString)
+        {
+            return JSON.Deserialize<Employee>(employeeString);
         }
 
         private static string SerializeEmployee(Employee employee)
@@ -27,7 +43,7 @@ namespace CsharpJSON
             }
         }
 
-        static Employee GetEmployee()
+        private static Employee GetEmployee()
         {
             var employee = new Employee
             {
