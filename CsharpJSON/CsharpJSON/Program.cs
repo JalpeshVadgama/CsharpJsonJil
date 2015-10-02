@@ -6,5 +6,17 @@ namespace CsharpJSON
         static void Main(string[] args)
         {
         }
+
+        static Employee GetEmployee()
+        {
+            var employee = new Employee
+            {
+                EmployeeId = 1,
+                FirstName = "Jalpesh",
+                LastName = "Vadgama",
+                Designation = "Technial Architect"
+            };
+            return employee;
+        }
     }
 }
