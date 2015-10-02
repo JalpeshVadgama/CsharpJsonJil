@@ -25,9 +25,16 @@ namespace CsharpJSON
             Console.ReadKey();
         }
 
-        private static Employee DeserializeEmployee(string employeeString)
+        private static Employee GetEmployee()
         {
-            return JSON.Deserialize<Employee>(employeeString);
+            var employee = new Employee
+            {
+                EmployeeId = 1,
+                FirstName = "Jalpesh",
+                LastName = "Vadgama",
+                Designation = "Technial Architect"
+            };
+            return employee;
         }
 
         private static string SerializeEmployee(Employee employee)
@@ -42,16 +49,13 @@ namespace CsharpJSON
             }
         }
 
-        private static Employee GetEmployee()
+        private static Employee DeserializeEmployee(string employeeString)
         {
-            var employee = new Employee
-            {
-                EmployeeId = 1,
-                FirstName = "Jalpesh",
-                LastName = "Vadgama",
-                Designation = "Technial Architect"
-            };
-            return employee;
+            return JSON.Deserialize<Employee>(employeeString);
         }
+
+
+
+
     }
 }
