@@ -1,5 +1,4 @@
-﻿
-using Jil;
+﻿using Jil;
 using System;
 using System.IO;
 
